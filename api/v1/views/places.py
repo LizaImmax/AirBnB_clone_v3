@@ -13,7 +13,7 @@ from flasgger.utils import swag_from
 
 @app_views.route("/cities/<city_id>/places", methods=["GET"],
                  strict_slashes=False)
-@swag_from('data/place/get_places.yml', methods=['GET'])
+@swag_from('data/places/get_places.yml', methods=['GET'])
 def place_by_city(city_id):
     """View function that return place objects by city"""
     city = storage.get(City, city_id)
