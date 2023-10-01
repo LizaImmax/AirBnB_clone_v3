@@ -24,7 +24,7 @@ def place_by_city(city_id):
 
 @app_views.route("/places/<place_id>", methods=["GET"],
                  strict_slashes=False)
-@swag_from('data/place/get_place.yml', methods=['GET'])
+@swag_from('data/places/get_place.yml', methods=['GET'])
 def show_place(place_id):
     """Endpoint that return a Place object"""
     place = storage.get(Place, place_id)
@@ -35,7 +35,7 @@ def show_place(place_id):
 
 @app_views.route("/places/<place_id>", methods=["DELETE"],
                  strict_slashes=False)
-@swag_from('data/place/delete_place.yml', methods=['DELETE'])
+@swag_from('data/places/delete_place.yml', methods=['DELETE'])
 def delete_place(place_id):
     """Endpoint that delete a Place object"""
     place = storage.get(Place, place_id)
@@ -48,7 +48,7 @@ def delete_place(place_id):
 
 @app_views.route("/cities/<city_id>/places", methods=["POST"],
                  strict_slashes=False)
-@swag_from('data/place/post_place.yml', methods=['POST'])
+@swag_from('data/places/post_place.yml', methods=['POST'])
 def insert_place(city_id):
     """Endpoint that insert a Place object"""
     city = storage.get(City, city_id)
@@ -72,7 +72,7 @@ def insert_place(city_id):
 
 @app_views.route("/places_search", methods=["POST"],
                  strict_slashes=False)
-@swag_from('data/place/put_place.yml', methods=['PUT'])
+@swag_from('data/places/put_place.yml', methods=['PUT'])
 def places_search():
     """Retrieves all Place objects depending of the body of the request"""
     body = request.get_json()
