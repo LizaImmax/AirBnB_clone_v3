@@ -71,9 +71,9 @@ class FileStorage:
 
     def get(self, cls, id):
         """
-            A method to retrieve one object [GET]
-                cls:  class
-                id :  string representing the object ID
+        A method to retrieve one object [GET]
+        cls:  class
+        id :  string representing ID object
         """
         if cls in classes.values() and id:
             objs = self.all(cls)
@@ -89,7 +89,8 @@ class FileStorage:
         """
         returns the number of objects in storage matching the given class.
         If no class is passed, returns the count of all objects in storage
-        cls: class optional."""
+        cls: class optional.
+        """
         if cls is None:
             return len(models.storage.all())
         return len(models.storage.all(cls))

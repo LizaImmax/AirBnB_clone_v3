@@ -77,9 +77,9 @@ class DBStorage:
 
     def get(self, cls, id):
         """
-            A method to retrieve one object [GET]
-                cls:  class
-                id :  string representing the object ID
+        A method to retrieve one object [GET]
+        cls:  class
+        id :  string representing the object ID
         """
         if cls in classes.values() and id:
             objs = self.all(cls)
@@ -92,8 +92,11 @@ class DBStorage:
         return None
 
     def count(self, cls=None):
-        """returns the number of objects in storage matching the given class.
-        If no class is passed, returns the count of all objects in storage."""
+        """
+        returns the number of objects in storage matching the given class.
+        If no class is passed, returns the count of all objects in storage.
+        cls: optional class
+        """
         if cls is None:
             return len(models.storage.all())
         return len(models.storage.all(cls))
